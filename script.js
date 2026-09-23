@@ -18,10 +18,7 @@ async function getRandomWord() {
     return randomItem;
 }
 
-userInputEl.addEventListener('input', (event) => {
-    userOutputEl.textContent = ">" + event.target.value;
 
-});
 
 getRandomWord();
 
@@ -29,10 +26,14 @@ getRandomWord();
 
 
 
-  function updateCursorPosition() {
+function updateCursorPosition() {
     const currentPosition = userInputEl.selectionStart;
+    userCursor = userInputEl.value.split("");
+    userCursor.splice(currentPosition, 0, "|");
+    console.log(userCursor.join(""));
+    userOutputEl.textContent = ">" + userCursor.join("")
     console.log("cursor position: "+ currentPosition);
-  }
+}
 
   
   userInputEl.addEventListener('keyup', updateCursorPosition);
