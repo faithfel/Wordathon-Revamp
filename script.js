@@ -1,6 +1,7 @@
 const wordHeaderEl = document.querySelector(".wordHeader");
-const userInputEl =document.querySelector(".input");
+const userInputEl = document.querySelector(".input");
 const userOutputEl = document.querySelector(".userOutput");
+
 
 async function getRandomWord() {
 
@@ -19,23 +20,25 @@ async function getRandomWord() {
 }
 
 
-
-getRandomWord();
-
-
-
-
-
-function updateCursorPosition() {
+function updateWord() {
     const currentPosition = userInputEl.selectionStart;
+
     userCursor = userInputEl.value.split("");
     userCursor.splice(currentPosition, 0, "|");
-    console.log(userCursor.join(""));
     userOutputEl.textContent = ">" + userCursor.join("")
-    console.log("cursor position: "+ currentPosition);
 }
 
-  
-  userInputEl.addEventListener('keyup', updateCursorPosition);
-  userInputEl.addEventListener('click', updateCursorPosition); //might remove
-  userInputEl.addEventListener('focus', updateCursorPosition); 
+userInputEl.addEventListener('keyup', updateWord);
+userInputEl.addEventListener('click', updateWord); //might remove
+userInputEl.addEventListener('focus', updateWord); 
+
+
+function compareWord(){
+    userInputArray = userInputEl.value.split("");
+
+    
+
+}
+
+
+getRandomWord();
